@@ -1,3 +1,5 @@
+from io import BytesIO
+
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
 
@@ -16,5 +18,5 @@ def convert(
         raise HTTPException(400, "Cannot process images!")
 
     return StreamingResponse(res, media_type="image/tiff", headers={
-        "Content-Disposition": "filename=Result.tif"
+        "Content-Disposition": "attachment; filename=Result.tif"
     })
