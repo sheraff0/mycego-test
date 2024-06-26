@@ -1,0 +1,5 @@
+fastapi
+yadisk[sync_defaults]
+
+opencv-python
+imageio
