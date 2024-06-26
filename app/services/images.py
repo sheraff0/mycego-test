@@ -9,6 +9,7 @@ def extract_image(zip_file, filename):
     try:
         with zip_file.open(filename) as f:
             img = cv2.imdecode(np.frombuffer(f.read(), np.uint8), 1)
+            print(img.shape)
             return img
     except:
         ...
@@ -16,6 +17,6 @@ def extract_image(zip_file, filename):
 
 def write_images(images):
     output = BytesIO()
-    iio.imwrite(output, images, plugin="tifffile", extension=".tif")
+    iio.imwrite(output, images, extension=".tif")
     output.seek(0)
     return output
